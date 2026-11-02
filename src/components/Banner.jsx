@@ -28,7 +28,7 @@ const Banner = () => {
                         </p>
                         <div className="mt-8 flex flex-wrap gap-4">
                             <Link
-                                href="/upcoming-events"
+                                href="/events"
                                 className="btn h-12 border-none bg-[#F4C542] px-6 text-base font-bold text-[#003366] shadow-md hover:bg-yellow-400"
                             >
                                 Upcoming Events
