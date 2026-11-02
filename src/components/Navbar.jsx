@@ -29,13 +29,13 @@ const Navbar = () => {
                     </div>
                     <div className="flex gap-3 items-center">
                     <Link
-                        href="/login"
+                        href="/signin"
                         className="btn btn-sm border border-[#F4C542] px-5 font-bold text-[#003366] shadow-sm hover:bg-yellow-400 sm:btn-md"
                     >
                         Login
                     </Link>
                     <Link
-                        href="/login"
+                        href="/signup"
                         className="btn btn-sm border-none bg-[#F4C542] px-5 font-bold text-[#003366] shadow-sm hover:bg-yellow-400 sm:btn-md"
                     >
                         SignUp
