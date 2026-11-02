@@ -1,6 +1,8 @@
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import EditEvent from "@/components/EditEvent";
 
 const EventsDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -20,6 +22,7 @@ const EventsDetailsPage = async ({ params }) => {
     return (
         <main className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-6xl">
+                <EditEvent event = {event} />
                 <Link
                     href="/events"
                     className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#003366] transition hover:text-blue-700"
