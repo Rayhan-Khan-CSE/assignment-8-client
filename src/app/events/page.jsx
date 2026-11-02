@@ -114,7 +114,7 @@ const AllEventsPage = async () => {
                                     </div>
                                     <div className="mt-auto pt-6">
                                         <Link
-                                            href={`/allEvents/${event._id}`}
+                                            href={`/events/${event._id}`}
                                             className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#003366] px-5 py-3.5 text-sm font-bold text-white transition duration-300 hover:bg-[#004080] focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:ring-offset-2"
                                         >
                                             View Event
