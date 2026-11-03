@@ -2,7 +2,6 @@
 "use client"
 import Image from "next/image";
 import logo1 from "../../assets/Google.png"
-import logo2 from "../../assets/Github.png"
 import { authClient, signIn } from "../../lib/auth-client";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
@@ -30,13 +29,6 @@ const SignInPage = () => {
     const handleGoogleSignIn = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
-        });
-        console.log(data);
-    }
-
-    const handleGithubSignIn = async () => {
-        const data = await authClient.signIn.social({
-            provider: "github",
         });
         console.log(data);
     }
@@ -94,23 +86,14 @@ const SignInPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-3 sm:flex-row">
+                    <div>
                         <button
                             type="button"
                             onClick={handleGoogleSignIn}
-                            className="btn flex-1 border-gray-300 bg-white text-gray-700 hover:border-[#003366] hover:bg-gray-50"
+                            className="btn w-full flex-1 border-gray-300 bg-white text-gray-700 hover:border-[#003366] hover:bg-gray-50"
                         >
                             <Image src={logo1} height={20} width={20} alt="Google logo" />
                             Google
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={handleGithubSignIn}
-                            className="btn flex-1 border-gray-300 bg-white text-gray-700 hover:border-[#003366] hover:bg-gray-50"
-                        >
-                            <Image src={logo2} height={20} width={20} alt="GitHub logo" />
-                            GitHub
                         </button>
                     </div>
 

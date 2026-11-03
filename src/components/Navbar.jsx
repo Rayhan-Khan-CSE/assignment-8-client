@@ -1,39 +1,49 @@
 import Link from "next/link";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 import Image from "next/image";
 import UserInfo from "./UserInfo";
 
 const Navbar = () => {
     return (
         <nav className="w-full shadow-lg">
-            <div className="mx-auto flex min-h-20 max-w-300 items-center justify-between px-4 sm:px-6 lg:px-8">
-                <Link href="/"><div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F4C542] text-xl font-bold text-[#003366]">
-                        <Image src={logo} height={100} width={100}alt="logo"></Image>
+            <div className="mx-auto flex min-h-20 max-w-300 flex-wrap items-center justify-between gap-3 px-3 py-3 sm:px-6 lg:flex-nowrap lg:px-8">
+
+                <Link href="/" className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F4C542] text-xl font-bold text-[#003366] sm:h-11 sm:w-11">
+                        <Image
+                            src={logo}
+                            height={100}
+                            width={100}
+                            alt="logo"
+                            className="h-full w-full rounded-xl object-cover"
+                        />
                     </div>
+
                     <div>
-                        <h1 className="text-2xl font-bold tracking-wide text-[#003366]">
-                            <span className="text-[#F4C542] font-extrabold">H</span>ermione
+                        <h1 className="text-xl font-bold tracking-wide text-[#003366] sm:text-2xl">
+                            <span className="font-extrabold text-[#F4C542]">H</span>ermione
                         </h1>
-                        <p className="hidden text-xs text-black-200 sm:block">
+
+                        <p className="hidden text-xs text-gray-500 sm:block">
                             Connecting People, Creating Impact
                         </p>
                     </div>
-                </div></Link>
+                </Link>
                 <div className="flex items-center gap-3 sm:gap-6">
                     <Link
                         href="/events"
-                        className="text-sm font-bold text-[#003366] transition hover:text-[#F4C542] sm:text-base"
+                        className="text-xs font-bold text-[#003366] transition hover:text-[#F4C542] sm:text-sm md:text-base"
                     >
                         Upcoming Events
                     </Link>
-                    </div>
-                    <div className="flex gap-3 items-center">
-                       <UserInfo></UserInfo>
-                    </div>
+                </div>
+                <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+                    <UserInfo />
+                </div>
 
             </div>
         </nav>
     );
-}
+};
+
 export default Navbar;

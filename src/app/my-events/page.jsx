@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const MyEventsPage = async () => {
-
     const session = await auth.api.getSession({
         headers: await headers()
     });
@@ -14,14 +13,14 @@ const MyEventsPage = async () => {
 
     const res = await fetch(`http://localhost:5000/my-events/${user.email}`);
     const events = await res.json();
+    events.sort((a, b) => {
+        return new Date(a.eventDate) - new Date(b.eventDate);
+    });
 
     return (
         <div className="min-h-screen bg-slate-50 px-4 py-12 sm:px-6 lg:px-8">
-
             <div className="mx-auto max-w-300">
-
                 <div className="mb-10 text-center">
-
                     <span className="inline-flex items-center gap-2 rounded-full bg-[#F4C542]/20 px-4 py-2 text-sm font-bold text-[#003366]">
                         <span className="h-2 w-2 rounded-full bg-[#F4C542]"></span>
                         YOUR ACTIVITIES
@@ -35,11 +34,9 @@ const MyEventsPage = async () => {
                         Explore the community events you have joined and
                         continue making a positive impact.
                     </p>
-
                 </div>
 
                 <div className="mb-8 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
-
                     <div>
                         <h2 className="text-lg font-bold text-[#003366]">
                             Joined Events
@@ -52,22 +49,16 @@ const MyEventsPage = async () => {
                     <div className="flex h-12 min-w-12 items-center justify-center rounded-xl bg-[#F4C542]/20 px-3 text-xl font-extrabold text-[#003366]">
                         {events.length}
                     </div>
-
                 </div>
 
                 {events.length > 0 ? (
-
                     <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
-
                         {events.map((event, index) => (
-
                             <article
                                 key={event._id || index}
                                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#F4C542] hover:shadow-xl"
                             >
-
                                 <div className="relative h-56 overflow-hidden bg-slate-100">
-
                                     {event.imageUrl ? (
                                         <Image
                                             width={100}
@@ -85,11 +76,9 @@ const MyEventsPage = async () => {
                                     <span className="absolute left-4 top-4 rounded-full bg-[#F4C542] px-4 py-2 text-xs font-bold text-[#003366] shadow-sm">
                                         {event.eventType || "Community Event"}
                                     </span>
-
                                 </div>
 
                                 <div className="p-6">
-
                                     <h2 className="line-clamp-1 text-xl font-extrabold text-[#003366] transition group-hover:text-[#B88700]">
                                         {event.title}
                                     </h2>
@@ -119,31 +108,22 @@ const MyEventsPage = async () => {
                                     </div>
 
                                     <div className="mt-6 border-t border-slate-100 pt-5">
-
                                         <Link
-                                            href={`/events/${event._id}`}
+                                           href={`/events/${event.eventId}`}
                                             className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#003366] px-5 py-3 font-bold text-white transition duration-200 hover:bg-[#00264d]"
                                         >
                                             View Event Details
                                             <span className="text-lg text-[#F4C542]">→</span>
                                         </Link>
-
                                     </div>
-
                                 </div>
 
                                 <div className="h-1 w-0 bg-[#F4C542] transition-all duration-300 group-hover:w-full"></div>
-
                             </article>
-
                         ))}
-
                     </div>
-
                 ) : (
-
                     <div className="rounded-3xl border border-slate-200 bg-white px-6 py-16 text-center shadow-sm">
-
                         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#F4C542]/20 text-4xl text-[#003366]">
                             ♡
                         </div>
@@ -159,19 +139,15 @@ const MyEventsPage = async () => {
                         </p>
 
                         <Link
-                            href="/allEvents"
+                            href="/events"
                             className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#003366] px-7 py-3.5 font-bold text-white transition hover:bg-[#00264d]"
                         >
                             Explore Events
                             <span className="text-[#F4C542]">→</span>
                         </Link>
-
                     </div>
-
                 )}
-
             </div>
-
         </div>
     );
 };

@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import EditEvent from '../../components/EditEvent';
+import DeleteEvent from '../../components/DeleteEvent';
 
 const ManageEventsPage = async () => {
 
@@ -13,7 +14,25 @@ const ManageEventsPage = async () => {
 
     const user = session?.user;
 
-    const res = await fetch(`http://localhost:5000/my-events/${user.email}`);
+    // If user is not logged in
+    if (!user?.email) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <h2 className="text-xl font-bold text-[#003366]">
+                    Please login to manage your events.
+                </h2>
+            </div>
+        );
+    }
+
+    // Get only events created by this user
+    const res = await fetch(
+        `http://localhost:5000/my-created-events/${encodeURIComponent(user.email)}`,
+        {
+            cache: 'no-store'
+        }
+    );
+
     const events = await res.json();
 
     return (
@@ -45,11 +64,11 @@ const ManageEventsPage = async () => {
 
                     <div>
                         <h2 className="text-lg font-bold text-[#003366]">
-                            Your Events
+                            Your Created Events
                         </h2>
 
                         <p className="mt-1 text-sm text-slate-500">
-                            Manage your published events
+                            Manage events created by you
                         </p>
                     </div>
 
@@ -76,8 +95,8 @@ const ManageEventsPage = async () => {
 
                                     {event.imageUrl ? (
                                         <Image
-                                            width={100}
-                                            height={100}
+                                            width={500}
+                                            height={500}
                                             src={event.imageUrl}
                                             alt={event.title}
                                             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
@@ -132,13 +151,7 @@ const ManageEventsPage = async () => {
 
                                         <EditEvent event={event} />
 
-                                        <button
-                                            type="button"
-                                            className="flex items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-3 text-sm font-bold text-red-600 transition duration-200 hover:bg-red-600 hover:text-white"
-                                        >
-                                            <span>🗑️</span>
-                                            Delete
-                                        </button>
+                                        <DeleteEvent eventId={event._id} />
 
                                     </div>
 

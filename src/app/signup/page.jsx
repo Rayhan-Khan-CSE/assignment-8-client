@@ -1,9 +1,7 @@
-
 "use client";
 
 import Image from "next/image";
 import logo1 from "../../assets/Google.png";
-import logo2 from "../../assets/Github.png";
 import { redirect } from "next/navigation";
 import { authClient, signUp } from "../../lib/auth-client";
 import React from "react";
@@ -13,13 +11,25 @@ import Link from "next/link";
 const SignUpPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
+
         const formData = new FormData(e.target);
         const user = Object.fromEntries(formData.entries());
 
-        if (user.password.length < 8) {
-            toast.error("Password must be at least 8 characters long!");
+        if (user.password.length < 6) {
+            toast.error("Password must be at least 6 characters long!");
             return;
         }
+
+        if (!/[A-Z]/.test(user.password)) {
+            toast.error("Password must contain at least one uppercase letter!");
+            return;
+        }
+
+        if (!/[a-z]/.test(user.password)) {
+            toast.error("Password must contain at least one lowercase letter!");
+            return;
+        }
+
         console.log(user);
 
         const { data, error } = await signUp.email({
@@ -40,14 +50,6 @@ const SignUpPage = () => {
     };
 
     const handleGoogleSignIn = async () => {
-        const data = await authClient.signIn.social({
-            provider: "google",
-        });
-
-        console.log(data);
-    };
-
-    const handleGithubSignIn = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
         });
@@ -112,7 +114,7 @@ const SignUpPage = () => {
                         name="password"
                         type="password"
                         className="input w-full border-gray-300 bg-white text-gray-800 outline-none focus:border-[#003366] focus:outline-[#003366]"
-                        placeholder="At least 8 characters"
+                        placeholder="At least 6 characters"
                     />
 
                     <label className="label mt-3 text-sm font-semibold text-[#003366]">
@@ -137,12 +139,11 @@ const SignUpPage = () => {
                         OR CONTINUE WITH
                     </div>
 
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-
+                    <div>
                         <button
                             type="button"
                             onClick={handleGoogleSignIn}
-                            className="btn h-auto min-h-12 border-gray-300 bg-white px-3 text-sm font-semibold text-gray-700 hover:border-[#003366] hover:bg-slate-50"
+                            className="btn h-auto min-h-12 w-full border-gray-300 bg-white px-3 text-sm font-semibold text-gray-700 hover:border-[#003366] hover:bg-slate-50"
                         >
                             <Image
                                 src={logo1}
@@ -152,21 +153,6 @@ const SignUpPage = () => {
                             />
                             Continue with Google
                         </button>
-
-                        <button
-                            type="button"
-                            onClick={handleGithubSignIn}
-                            className="btn h-auto min-h-12 border-gray-300 bg-white px-3 text-sm font-semibold text-gray-700 hover:border-[#003366] hover:bg-slate-50"
-                        >
-                            <Image
-                                src={logo2}
-                                height={20}
-                                width={20}
-                                alt="GitHub logo"
-                            />
-                            Continue with GitHub
-                        </button>
-
                     </div>
 
                     <div className="mt-6 text-center">
