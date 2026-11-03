@@ -1,5 +1,6 @@
 "use client";
 
+import getTokenFromClient from '../lib/getTokenFromClient';
 import Image from 'next/image';
 import React, { useState } from "react";
 import { MdOutlineCancel } from 'react-icons/md';
@@ -43,11 +44,12 @@ const EditEvent = ({ event }) => {
 
         try {
             const { _id, ...updatedData } = formData;
-
+            const token = await getTokenFromClient()
             const res = await fetch(`http://localhost:5000/events/${event._id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
+                    authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify(updatedData),
             });

@@ -2,6 +2,7 @@ import Link from "next/link";
 import logo from "../assets/logo.png";
 import Image from "next/image";
 import UserInfo from "./UserInfo";
+import Theme from "../components/Theme";
 
 const Navbar = () => {
     return (
@@ -29,6 +30,7 @@ const Navbar = () => {
                         </p>
                     </div>
                 </Link>
+
                 <div className="flex items-center gap-3 sm:gap-6">
                     <Link
                         href="/events"
@@ -37,7 +39,9 @@ const Navbar = () => {
                         Upcoming Events
                     </Link>
                 </div>
+
                 <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+                    <Theme/>
                     <UserInfo />
                 </div>
 

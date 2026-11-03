@@ -65,11 +65,13 @@ const CreateEventPage = () => {
                 ...formData,
                 email: user.email
             };
-
+            const {data, error} = await authClient.token()
+            const token = data?.token
             const res = await fetch("http://localhost:5000/createEvent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify(eventData)
             });
@@ -78,9 +80,9 @@ const CreateEventPage = () => {
                 throw new Error("Failed to create event");
             }
 
-            const data = await res.json();
+            const result = await res.json();
 
-            console.log(data);
+            console.log(result);
 
             setMessage("A new event is created successfully!");
 

@@ -79,7 +79,7 @@ const Footer = () => {
                         </p>
 
                         <Link
-                            href="/upcoming-events"
+                            href="/events"
                             className="mt-5 inline-flex items-center rounded-lg bg-[#F4C542] px-5 py-2.5 text-sm font-semibold text-[#003366] transition hover:bg-yellow-400"
                         >
                             Explore Events
