@@ -11,7 +11,7 @@ const MyEventsPage = async () => {
 
     const user = session?.user;
 
-    const res = await fetch(`http://localhost:5000/my-events/${user.email}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-events/${user.email}`);
     const events = await res.json();
     events.sort((a, b) => {
         return new Date(a.eventDate) - new Date(b.eventDate);

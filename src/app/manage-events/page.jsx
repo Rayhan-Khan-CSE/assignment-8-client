@@ -27,7 +27,7 @@ const ManageEventsPage = async () => {
 
     // Get only events created by this user
     const res = await fetch(
-        `http://localhost:5000/my-created-events/${encodeURIComponent(user.email)}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/my-created-events/${encodeURIComponent(user.email)}`,
         {
             cache: 'no-store'
         }

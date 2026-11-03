@@ -14,7 +14,7 @@ const EventsDetailsPage = async ({ params }) => {
     })
     const token = jwtToken?.token
 
-    const res = await fetch(`http://localhost:5000/events/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`, {
         headers: {authorization: `Bearer ${token}`}
     });
     const event = await res.json();

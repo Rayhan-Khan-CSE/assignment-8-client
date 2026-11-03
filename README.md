@@ -2,7 +2,7 @@
 
  Description: Hermione is a community based volunteering platform where people can create events, discover volunteering ooportunities and join activities to make a positive impact in society.
 
- Live site URL on the client side:
+ Live site URL on the client side: https://hermione-frontend.vercel.app/
 
  Minimum of five bullet points to feature my website:
  . Create Community Events

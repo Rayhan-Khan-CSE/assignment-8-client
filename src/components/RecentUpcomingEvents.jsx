@@ -6,7 +6,7 @@ import { MdOutlineEventNote } from "react-icons/md";
 import { LuView } from "react-icons/lu";
 
 const RecentUpcomingEvents = async () => {
-    const res = await fetch("http://localhost:5000/events", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         cache: "no-store",
     });
 

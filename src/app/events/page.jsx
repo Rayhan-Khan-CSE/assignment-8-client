@@ -3,7 +3,7 @@ import UpcomingEventSearchPage from "../../components/UpcomingEventSearch";
 
 const AllEventsPage = async () => {
 
-    const res = await fetch("http://localhost:5000/events");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`);
     const data = await res.json();
 
     const today = new Date();

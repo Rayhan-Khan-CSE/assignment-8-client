@@ -36,7 +36,7 @@ const NotFound = () => {
           </Link>
         </div>
         <p className="mt-10 text-sm text-gray-400">
-          বাজার দর — প্রতিদিনের বাজারের দাম এক নজরে
+          Hermione - explore community event
         </p>
       </div>
     </div>
