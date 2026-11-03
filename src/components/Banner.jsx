@@ -1,6 +1,5 @@
-
 import Link from "next/link";
-import logo from "@/assets/Banner-logo.png"
+import logo from "../assets/Banner-logo.png"
 import Image from "next/image";
 const Banner = () => {
     return (
@@ -35,7 +34,7 @@ const Banner = () => {
                                 <span aria-hidden="true">→</span>
                             </Link>
                             <Link
-                                href="/create-event"
+                                href="/createEvent"
                                 className="btn h-12 border-2 border-white bg-transparent px-6 text-base font-semibold text-white hover:border-[#F4C542] hover:bg-white/10"
                             >
                                 Create Event

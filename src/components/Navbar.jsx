@@ -1,6 +1,7 @@
 import Link from "next/link";
-import logo from "@/assets/logo.png"
+import logo from "../assets/logo.png"
 import Image from "next/image";
+import UserInfo from "./UserInfo";
 
 const Navbar = () => {
     return (
@@ -28,20 +29,8 @@ const Navbar = () => {
                     </Link>
                     </div>
                     <div className="flex gap-3 items-center">
-                    <Link
-                        href="/signin"
-                        className="btn btn-sm border border-[#F4C542] px-5 font-bold text-[#003366] shadow-sm hover:bg-yellow-400 sm:btn-md"
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        href="/signup"
-                        className="btn btn-sm border-none bg-[#F4C542] px-5 font-bold text-[#003366] shadow-sm hover:bg-yellow-400 sm:btn-md"
-                    >
-                        SignUp
-                    </Link>
-                    
-                </div>
+                       <UserInfo></UserInfo>
+                    </div>
 
             </div>
         </nav>

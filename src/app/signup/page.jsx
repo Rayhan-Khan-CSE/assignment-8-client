@@ -2,10 +2,10 @@
 "use client";
 
 import Image from "next/image";
-import logo1 from "@/assets/Google.png";
-import logo2 from "@/assets/Github.png";
+import logo1 from "../../assets/Google.png";
+import logo2 from "../../assets/Github.png";
 import { redirect } from "next/navigation";
-import { authClient, signUp } from "@/lib/auth-client";
+import { authClient, signUp } from "../../lib/auth-client";
 import React from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
@@ -20,12 +20,6 @@ const SignUpPage = () => {
             toast.error("Password must be at least 8 characters long!");
             return;
         }
-
-        if (user.password !== formData.get("confirmPassword")) {
-            toast.error("Passwords do not match!");
-            return;
-        }
-
         console.log(user);
 
         const { data, error } = await signUp.email({
@@ -122,14 +116,14 @@ const SignUpPage = () => {
                     />
 
                     <label className="label mt-3 text-sm font-semibold text-[#003366]">
-                        Confirm Password
+                        Image URL
                     </label>
 
                     <input
-                        name="confirmPassword"
-                        type="password"
+                        name="image"
+                        type="url"
                         className="input w-full border-gray-300 bg-white text-gray-800 outline-none focus:border-[#003366] focus:outline-[#003366]"
-                        placeholder="Enter your password again"
+                        placeholder="Image URL"
                     />
 
                     <button

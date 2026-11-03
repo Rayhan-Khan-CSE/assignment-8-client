@@ -1,6 +1,7 @@
 
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import React from 'react';
 import { MdOutlineCancel } from "react-icons/md";
@@ -17,7 +18,6 @@ const CreateEventPage = () => {
 
     const [message, setMessage] = useState("");
 
-    // Get today's date in local time (YYYY-MM-DD).
     const getTodayDate = () => {
         const today = new Date();
         const year = today.getFullYear();
@@ -50,13 +50,11 @@ const CreateEventPage = () => {
         const data = await res.json();
         console.log(data);
 
-        // Validate that the selected date is in the future.
         if (!formData.eventDate || formData.eventDate <= getTodayDate()) {
             setMessage("Please select a future date for your event.");
             return;
         }
 
-        // UI demo only: no database or API connection.
         setMessage("Form validated successfully! Backend integration is not connected.");
 
         console.log("Event form data:", formData);
@@ -72,7 +70,6 @@ const CreateEventPage = () => {
         <section className="min-h-screen bg-slate-50 px-4 py-12 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-6xl">
 
-                {/* Page Heading */}
                 <div className="mb-10 text-center">
                     <h1 className="mt-5 text-3xl font-bold tracking-tight text-[#003366] sm:text-4xl lg:text-5xl">
                         Create a Community Event
@@ -83,10 +80,8 @@ const CreateEventPage = () => {
                     </p>
                 </div>
 
-                {/* Form Card */}
                 <div className="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl shadow-slate-200/60">
 
-                    {/* Card Header */}
                     <div className="bg-[#003366] px-6 py-6 sm:px-10">
                         <h2 className="text-xl font-bold text-white sm:text-2xl">
                             Event Information
@@ -99,7 +94,6 @@ const CreateEventPage = () => {
 
                     <form onSubmit={handleSubmit} className="p-6 sm:p-10">
 
-                        {/* Basic Information */}
                         <div className="mb-8">
                             <h3 className="text-lg font-bold text-[#003366]">
                                 Basic Details
@@ -112,7 +106,6 @@ const CreateEventPage = () => {
 
                         <div className="grid gap-6 md:grid-cols-2">
 
-                            {/* Event Title */}
                             <div className="md:col-span-2">
                                 <label htmlFor="title" className={labelClass}>
                                     Event Title <span className="text-red-500">*</span>
@@ -135,7 +128,6 @@ const CreateEventPage = () => {
                                 </p>
                             </div>
 
-                            {/* Event Type */}
                             <div>
                                 <label htmlFor="eventType" className={labelClass}>
                                     Event Type <span className="text-red-500">*</span>
@@ -161,7 +153,6 @@ const CreateEventPage = () => {
                                 </select>
                             </div>
 
-                            {/* Location */}
                             <div>
                                 <label htmlFor="location" className={labelClass}>
                                     Event Location <span className="text-red-500">*</span>
@@ -180,7 +171,6 @@ const CreateEventPage = () => {
                                 />
                             </div>
 
-                            {/* Description */}
                             <div className="md:col-span-2">
                                 <label htmlFor="description" className={labelClass}>
                                     Event Description <span className="text-red-500">*</span>
@@ -206,7 +196,6 @@ const CreateEventPage = () => {
                             </div>
                         </div>
 
-                        {/* Schedule & Image */}
                         <div className="mb-8 mt-10 border-t border-gray-100 pt-8">
                             <h3 className="text-lg font-bold text-[#003366]">
                                 Schedule & Cover Image
@@ -219,7 +208,6 @@ const CreateEventPage = () => {
 
                         <div className="grid gap-6 md:grid-cols-2">
 
-                            {/* Event Date */}
                             <div>
                                 <label htmlFor="eventDate" className={labelClass}>
                                     Event Date <span className="text-red-500">*</span>
@@ -241,7 +229,6 @@ const CreateEventPage = () => {
                                 </p>
                             </div>
 
-                            {/* Thumbnail URL */}
                             <div>
                                 <label htmlFor="imageUrl" className={labelClass}>
                                     Thumbnail Image URL <span className="text-red-500">*</span>
@@ -264,7 +251,6 @@ const CreateEventPage = () => {
                             </div>
                         </div>
 
-                        {/* Image Preview */}
                         {formData.imageUrl && (
                             <div className="mt-6">
                                 <p className={labelClass}>Thumbnail Preview</p>
@@ -287,7 +273,6 @@ const CreateEventPage = () => {
                             </div>
                         )}
 
-                        {/* Feedback Message */}
                         {message && (
                             <div
                                 role="status"
@@ -300,19 +285,18 @@ const CreateEventPage = () => {
                             </div>
                         )}
 
-                        {/* Form Actions */}
                         <div className="mt-10 flex flex-col-reverse gap-4 border-t border-gray-100 pt-8 sm:flex-row sm:items-center sm:justify-between">
                             <p className="text-xs text-gray-500">
                                 <span className="text-red-500">*</span> Required fields
                             </p>
                             <div className="flex gap-3 items-center">
-                                <button
-                                    type="submit"
+                                <Link 
+                                    href="/"
                                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-red-500 bg-white px-8 py-3.5 font-bold text-[#003366] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-red-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#003366] focus:ring-offset-2"
                                 >
                                     Cancel
                                     <span aria-hidden="true"><MdOutlineCancel /></span>
-                                </button>
+                                </Link>
 
                                 <button
                                     type="submit"

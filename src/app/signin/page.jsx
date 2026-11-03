@@ -1,9 +1,9 @@
 
 "use client"
 import Image from "next/image";
-import logo1 from "@/assets/Google.png"
-import logo2 from "@/assets/Github.png"
-import { authClient, signIn } from "@/lib/auth-client";
+import logo1 from "../../assets/Google.png"
+import logo2 from "../../assets/Github.png"
+import { authClient, signIn } from "../../lib/auth-client";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 import Link from "next/link";
