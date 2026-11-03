@@ -2,14 +2,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import EditEvent from "@/components/EditEvent";
+import EditEvent from "../../../components/EditEvent";
+import JoinedEvents from "../../../components/JoinedEvents";
 
 const EventsDetailsPage = async ({ params }) => {
     const { id } = await params;
 
     const res = await fetch(`http://localhost:5000/events/${id}`)
     const event = await res.json();
-    const joinedPeople = 24;
 
     const formatDate = (date) => {
         return new Date(`${date}T00:00:00`).toLocaleDateString("en-BD", {
@@ -22,7 +22,6 @@ const EventsDetailsPage = async ({ params }) => {
     return (
         <main className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-6xl">
-                <EditEvent event = {event} />
                 <Link
                     href="/events"
                     className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#003366] transition hover:text-blue-700"
@@ -111,46 +110,7 @@ const EventsDetailsPage = async ({ params }) => {
                             </div>
                         </div>
                         <aside>
-                            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-8">
-                                <p className="text-sm font-semibold text-gray-500">
-                                    Become a Volunteer
-                                </p>
-                                <h2 className="mt-2 text-2xl font-extrabold text-[#003366]">
-                                    Make an Impact
-                                </h2>
-                                <p className="mt-3 text-sm leading-6 text-gray-500">
-                                    Join this initiative and help make a positive difference
-                                    in your community.
-                                </p>
-                                <div className="mt-6 rounded-2xl bg-blue-50 p-5">
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#003366] text-2xl">
-                                            👥
-                                        </div>
-                                        <div>
-                                            <p className="text-3xl font-extrabold text-[#003366]">
-                                                {joinedPeople}
-                                            </p>
-                                            <p className="mt-1 text-sm text-gray-500">
-                                                People Joined
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <p className="mt-4 border-t border-blue-100 pt-3 text-xs leading-5 text-gray-500">
-                                        Community members coming together to make a difference.
-                                    </p>
-                                </div>
-                                <button
-                                    type="button"
-                                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F4C542] px-5 py-4 font-bold text-[#003366] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#E8B92D] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#003366] focus:ring-offset-2"
-                                >
-                                    Join Event
-                                    <span className="text-lg">→</span>
-                                </button>
-                                <p className="mt-4 text-center text-xs leading-5 text-gray-400">
-                                    Together, we can create meaningful change.
-                                </p>
-                            </div>
+                            <JoinedEvents event = {event}/>
                         </aside>
                     </div>
                 </div>

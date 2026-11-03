@@ -118,7 +118,7 @@ const UserInfo = () => {
                                     </Link>
 
                                     <Link
-                                        href="/manageEvents"
+                                        href="/manage-events"
                                         onClick={() => setOpen(false)}
                                         className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-[#F4C542]/20 hover:text-[#003366]"
                                     >
@@ -127,7 +127,7 @@ const UserInfo = () => {
                                     </Link>
 
                                     <Link
-                                        href="/joinedEvents"
+                                        href="/my-events"
                                         onClick={() => setOpen(false)}
                                         className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-[#F4C542]/20 hover:text-[#003366]"
                                     >
