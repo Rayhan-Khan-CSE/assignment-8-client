@@ -33,7 +33,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/upcoming-events"
+                                    href="/events"
                                     className="transition hover:text-[#F4C542]"
                                 >
                                     Upcoming Events
@@ -41,7 +41,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/create-event"
+                                    href="/createEvent"
                                     className="transition hover:text-[#F4C542]"
                                 >
                                     Create an Event
@@ -77,16 +77,6 @@ const Footer = () => {
                             Be part of something meaningful. Join local social service
                             events and help create positive change in your community.
                         </p>
-
-                        <Link
-                            href="/events"
-                            className="mt-5 inline-flex items-center rounded-lg bg-[#F4C542] px-5 py-2.5 text-sm font-semibold text-[#003366] transition hover:bg-yellow-400"
-                        >
-                            Explore Events
-                            <span className="ml-2" aria-hidden="true">
-                                →
-                            </span>
-                        </Link>
                     </div>
                 </div>
                 <div className="my-8 border-t border-blue/20"></div>
@@ -95,11 +85,7 @@ const Footer = () => {
                         © {new Date().getFullYear()} Hermione. All rights reserved.
                     </p>
                     <p>
-                        Made with{" "}
-                        <span className="text-[#F4C542]" aria-label="love">
-                            ♥
-                        </span>{" "}
-                        for a better community.
+                        Together, We Create a Better Tomorrow.
                     </p>
                 </div>
             </div>

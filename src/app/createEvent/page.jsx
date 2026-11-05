@@ -6,6 +6,7 @@ import { useState } from "react";
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 import { authClient } from "../../lib/auth-client";
+import { redirect } from "next/navigation";
 
 const CreateEventPage = () => {
 
@@ -46,26 +47,22 @@ const CreateEventPage = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Check login first
         if (!user?.email) {
             setMessage("Please login first to create an event.");
             return;
         }
 
-        // Validate event date
         if (!formData.eventDate || formData.eventDate <= getTodayDate()) {
             setMessage("Please select a future date for your event.");
             return;
         }
 
         try {
-
-            // Add logged-in user's email
             const eventData = {
                 ...formData,
                 email: user.email
             };
-            const {data, error} = await authClient.token()
+            const { data, error } = await authClient.token()
             const token = data?.token
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/createEvent`, {
                 method: "POST",
@@ -86,9 +83,12 @@ const CreateEventPage = () => {
 
             setMessage("A new event is created successfully!");
 
+            setTimeout(() => {
+                redirect("/events");
+            }, 1500);
+
             console.log("Event form data:", eventData);
 
-            // Clear form after successful creation
             setFormData({
                 title: "",
                 description: "",
@@ -360,11 +360,10 @@ const CreateEventPage = () => {
 
                             <div
                                 role="status"
-                                className={`mt-6 rounded-xl border p-4 text-sm ${
-                                    message.startsWith("A new event")
+                                className={`mt-6 rounded-xl border p-4 text-sm ${message.startsWith("A new event")
                                         ? "border-green-200 bg-green-50 text-green-800"
                                         : "border-red-200 bg-red-50 text-red-700"
-                                }`}
+                                    }`}
                             >
                                 {message}
                             </div>

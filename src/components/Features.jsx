@@ -27,11 +27,11 @@ const features = [
     },
     {
         number: "04",
-        icon: "✓",
-        title: "Track Participation",
+        icon: "✎",
+        title: "Update Event Details",
         description:
-            "Keep track of the social service events you have joined and stay informed about your upcoming activities.",
-        tag: "Stay Organized",
+            "Easily update your event information, change schedules, and keep volunteers informed about the latest event details.",
+        tag: "Keep Everyone Updated",
     },
     {
         number: "05",

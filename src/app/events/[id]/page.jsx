@@ -2,21 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import EditEvent from "../../../components/EditEvent";
 import JoinedEvents from "../../../components/JoinedEvents";
-import { auth } from "../../../lib/auth";
-import { headers } from "next/headers";
 
 const EventsDetailsPage = async ({ params }) => {
     const { id } = await params;
-    const jwtToken = await auth.api.getToken({
-        headers: await headers()
-    })
-    const token = jwtToken?.token
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`, {
-        headers: {authorization: `Bearer ${token}`}
-    });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`);
     const event = await res.json();
 
     const formatDate = (date) => {

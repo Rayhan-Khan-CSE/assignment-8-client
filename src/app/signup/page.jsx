@@ -9,11 +9,22 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 
 const SignUpPage = () => {
+
     const onSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.target);
         const user = Object.fromEntries(formData.entries());
+
+        if (
+            !user.name.trim() ||
+            !user.email.trim() ||
+            !user.password ||
+            !user.image.trim()
+        ) {
+            toast.error("Please fill in all fields!");
+            return;
+        }
 
         if (user.password.length < 6) {
             toast.error("Password must be at least 6 characters long!");
@@ -91,8 +102,9 @@ const SignUpPage = () => {
                     <input
                         name="name"
                         type="text"
+                        required
                         className="input w-full border-gray-300 bg-white text-gray-800 outline-none focus:border-[#003366] focus:outline-[#003366]"
-                        placeholder="e.g. Rahim Uddin"
+                        placeholder="e.g. Rayhan Khan"
                     />
 
                     <label className="label mt-3 text-sm font-semibold text-[#003366]">
@@ -102,6 +114,7 @@ const SignUpPage = () => {
                     <input
                         name="email"
                         type="email"
+                        required
                         className="input w-full border-gray-300 bg-white text-gray-800 outline-none focus:border-[#003366] focus:outline-[#003366]"
                         placeholder="you@example.com"
                     />
@@ -113,9 +126,19 @@ const SignUpPage = () => {
                     <input
                         name="password"
                         type="password"
+                        required
                         className="input w-full border-gray-300 bg-white text-gray-800 outline-none focus:border-[#003366] focus:outline-[#003366]"
-                        placeholder="At least 6 characters"
+                        placeholder="use a strong password"
                     />
+
+                    <div className="mt-2 text-xs leading-6 text-gray-500">
+                        <p className="font-semibold text-[#003366]">
+                            Password Requirements:
+                        </p>
+                        <p>• At least 6 characters long</p>
+                        <p>• At least one uppercase letter (A-Z)</p>
+                        <p>• At least one lowercase letter (a-z)</p>
+                    </div>
 
                     <label className="label mt-3 text-sm font-semibold text-[#003366]">
                         Image URL
@@ -124,6 +147,7 @@ const SignUpPage = () => {
                     <input
                         name="image"
                         type="url"
+                        required
                         className="input w-full border-gray-300 bg-white text-gray-800 outline-none focus:border-[#003366] focus:outline-[#003366]"
                         placeholder="Image URL"
                     />

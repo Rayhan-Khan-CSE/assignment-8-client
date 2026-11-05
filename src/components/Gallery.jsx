@@ -14,7 +14,7 @@ const galleryItems = [
         id: 2,
         title: "Food Distribution Drive",
         category: "Food Assistance",
-        location: "Rural Bangladesh",
+        location: "Noakhali, Bangladesh",
         image:
             "https://static.wixstatic.com/media/ece451_76fee382458b4e929ea571316f9fbd02~mv2.jpg/v1/fill/w_800%2Ch_600%2Cal_c%2Cq_85%2Cenc_avif%2Cquality_auto/ece451_76fee382458b4e929ea571316f9fbd02~mv2.jpg",
         size: "normal",
@@ -23,7 +23,7 @@ const galleryItems = [
         id: 3,
         title: "Plant a Tree, Grow a Future",
         category: "Environment",
-        location: "Bangladesh",
+        location: "Dhaka, Bangladesh",
         image:
             "https://s3sdghub-bucket.s3.eu-west-1.amazonaws.com/core-cms/public/styles/media_image_large/public/IMG_0040_copy_2930x1953.jpg?itok=675jcwtg",
         size: "normal",
@@ -32,7 +32,7 @@ const galleryItems = [
         id: 4,
         title: "Flood Relief Assistance",
         category: "Emergency Relief",
-        location: "Rural Bangladesh",
+        location: "Chattogram, Bangladesh",
         image:
             "https://dgikh81ssvyrj.cloudfront.net/media/images/PR-flood-response.format-jpeg.width-1174.avifquality-50.jpg",
         size: "normal",
@@ -41,7 +41,7 @@ const galleryItems = [
         id: 5,
         title: "Supporting Flood-Affected Families",
         category: "Humanitarian Aid",
-        location: "Bangladesh",
+        location: "Khulna, Bangladesh",
         image:
             "https://cdn.zakat.org/public-assets/with-determination-and-compassion-your-support-reaches-flood-affected-families.jpg",
         size: "normal",
@@ -50,7 +50,7 @@ const galleryItems = [
         id: 6,
         title: "Sharing Meals, Spreading Smiles",
         category: "Community Care",
-        location: "Bangladesh",
+        location: "Barishal, Bangladesh",
         image:
             "https://gdb.voanews.com/f697c473-0b10-4f0b-b724-a503e0e9f96e_w1080_h608_s.jpg",
         size: "large",

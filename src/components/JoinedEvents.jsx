@@ -1,9 +1,11 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import { authClient } from '../lib/auth-client';
 import React, { useEffect, useState } from 'react';
 
 const JoinedEvents = ({ event }) => {
+    const router = useRouter();
     const { data: session } = authClient.useSession();
     const user = session?.user;
 
@@ -44,7 +46,7 @@ const JoinedEvents = ({ event }) => {
         }
 
         if (!user?.email) {
-            showToast("Please login first!");
+            router.push('/signin');
             return;
         }
 

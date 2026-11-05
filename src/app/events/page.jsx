@@ -3,18 +3,24 @@ import UpcomingEventSearchPage from "../../components/UpcomingEventSearch";
 
 const AllEventsPage = async () => {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
+    cache: "no-store",
+});
     const data = await res.json();
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const upcomingEvents = data.filter((event) => {
+    const upcomingEvents = data
+    .filter((event) => {
         if (!event.eventDate) return false;
 
         const eventDate = new Date(`${event.eventDate}T00:00:00`);
 
         return eventDate > today;
+    })
+    .sort((a, b) => {
+        return new Date(a.eventDate) - new Date(b.eventDate);
     });
 
     return (
