@@ -1,4 +1,3 @@
-
 "use client"
 import Image from "next/image";
 import logo1 from "../../assets/Google.png"
@@ -6,7 +5,6 @@ import { authClient, signIn } from "../../lib/auth-client";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 import Link from "next/link";
-
 const SignInPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -25,14 +23,12 @@ const SignInPage = () => {
             toast.error('Incorrect email or password!');
         }
     }
-
     const handleGoogleSignIn = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
         });
         console.log(data);
     }
-
     return (
         <div className="mx-auto my-10 flex w-full max-w-7xl flex-col items-center justify-center px-4">
             <div className="mb-8 text-center">
@@ -43,14 +39,11 @@ const SignInPage = () => {
                     Sign in to explore community events and manage your profile.
                 </p>
             </div>
-
             <form onSubmit={onSubmit} className="w-full max-w-md">
                 <fieldset className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg sm:p-8">
-
                     <legend className="px-2 text-lg font-semibold text-[#003366]">
                         Sign In to Hermione
                     </legend>
-
                     <label className="mb-2 mt-3 block text-sm font-semibold text-gray-700">
                         Email Address
                     </label>
@@ -61,7 +54,6 @@ const SignInPage = () => {
                         placeholder="you@example.com"
                         required
                     />
-
                     <label className="mb-2 mt-5 block text-sm font-semibold text-gray-700">
                         Password
                     </label>
@@ -72,20 +64,17 @@ const SignInPage = () => {
                         placeholder="Enter your password"
                         required
                     />
-
                     <button
                         type="submit"
                         className="btn mt-6 w-full border-[#003366] bg-[#003366] text-base font-semibold text-white hover:border-[#00264d] hover:bg-[#00264d]"
                     >
                         Sign In
                     </button>
-
                     <div className="flex w-full flex-col">
                         <div className="divider my-5 text-sm text-gray-500">
                             OR CONTINUE WITH
                         </div>
                     </div>
-
                     <div>
                         <button
                             type="button"
@@ -96,7 +85,6 @@ const SignInPage = () => {
                             Google
                         </button>
                     </div>
-
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-600">
                             Do not have an account?{" "}
@@ -110,7 +98,6 @@ const SignInPage = () => {
                     </div>
                 </fieldset>
             </form>
-
             <Link
                 href="/"
                 className="mt-6 text-sm font-medium text-[#003366] transition-colors hover:text-[#b38b00]"
@@ -120,5 +107,4 @@ const SignInPage = () => {
         </div>
     );
 };
-
 export default SignInPage;

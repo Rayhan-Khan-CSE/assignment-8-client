@@ -4,28 +4,21 @@ import Link from "next/link";
 import { SlLocationPin } from "react-icons/sl";
 import { MdOutlineEventNote } from "react-icons/md";
 import { LuView } from "react-icons/lu";
-
 const RecentUpcomingEvents = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         cache: "no-store",
     });
-
     const data = await res.json();
-
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-
     const upcomingEvents = data
         .filter((event) => {
             if (!event.eventDate) return false;
-
             const eventDate = new Date(`${event.eventDate}T00:00:00`);
-
             return eventDate > today;
         })
         .sort((a, b) => a.eventDate.localeCompare(b.eventDate))
         .slice(0, 6);
-
     const formatDate = (date) => {
         return new Date(`${date}T00:00:00`).toLocaleDateString("en-BD", {
             day: "numeric",
@@ -71,7 +64,6 @@ const RecentUpcomingEvents = async () => {
                                             No Image Available
                                         </div>
                                     )}
-
                                     {event.eventType && (
                                         <span className="absolute left-4 top-4 rounded-full bg-[#F4C542] px-3 py-1.5 text-xs font-bold text-[#003366] shadow-sm">
                                             {event.eventType}
@@ -146,5 +138,4 @@ const RecentUpcomingEvents = async () => {
         </section>
     );
 };
-
 export default RecentUpcomingEvents;

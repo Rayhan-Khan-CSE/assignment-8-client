@@ -1,16 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import {
-    FaHandsHelping,
-    FaBullseye,
-    FaEye,
-    FaHeart,
-    FaUsers,
-    FaLeaf,
-    FaGraduationCap,
-    FaArrowRight,
-} from "react-icons/fa";
-
+import {FaHandsHelping, FaBullseye, FaEye, FaHeart, FaUsers, FaLeaf, FaGraduationCap,} from "react-icons/fa";
 const AboutPage = () => {
     const values = [
         {
@@ -38,7 +26,6 @@ const AboutPage = () => {
                 "We promote sustainable initiatives that create lasting positive change.",
         },
     ];
-
     const activities = [
         {
             icon: <FaHandsHelping />,
@@ -59,22 +46,17 @@ const AboutPage = () => {
                 "Promoting educational opportunities and learning support for children in need.",
         },
     ];
-
     return (
         <main className="min-h-screen bg-slate-50">
-
             <section className="px-4 py-20 sm:px-6 lg:py-24">
                 <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-
                     <div>
                         <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#c18d00]">
                             Who We Are
                         </p>
-
                         <h2 className="text-3xl font-extrabold leading-tight text-[#003366] sm:text-4xl">
                             Connecting People With Purpose
                         </h2>
-
                         <p className="mt-6 leading-8 text-gray-600">
                             Hermione is designed to make community service
                             more accessible, organized, and impactful. We
@@ -83,7 +65,6 @@ const AboutPage = () => {
                             meaningful activities, and contribute to their
                             communities.
                         </p>
-
                         <p className="mt-4 leading-8 text-gray-600">
                             From distributing winter clothes and blankets to
                             supporting education and protecting the
@@ -91,57 +72,45 @@ const AboutPage = () => {
                             build a better future for everyone.
                         </p>
                     </div>
-
                     <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl sm:p-10">
                         <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#003366] text-2xl text-[#F4C542]">
                             <FaHandsHelping />
                         </div>
-
                         <h3 className="text-2xl font-bold text-[#003366]">
                             Our Commitment
                         </h3>
-
                         <p className="mt-4 leading-8 text-gray-600">
                             We aim to create an inclusive space where people
                             from different backgrounds can come together,
                             support one another, and take meaningful action
                             toward social development.
                         </p>
-
                         <div className="mt-8 h-1.5 w-24 rounded-full bg-[#F4C542]"></div>
                     </div>
-
                 </div>
             </section>
             <section className="bg-white px-4 py-20 sm:px-6 lg:py-24">
                 <div className="mx-auto max-w-6xl">
-
                     <div className="mb-14 text-center">
                         <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#c18d00]">
                             Our Purpose
                         </p>
-
                         <h2 className="text-3xl font-extrabold text-[#003366] sm:text-4xl">
                             Mission & Vision
                         </h2>
-
                         <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-500">
                             Building a culture of kindness, collaboration,
                             and positive social change.
                         </p>
                     </div>
-
                     <div className="grid gap-8 md:grid-cols-2">
-
                         <div className="rounded-3xl bg-[#003366] p-8 text-white shadow-lg sm:p-10">
                             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F4C542] text-2xl text-[#003366]">
                                 <FaBullseye />
                             </div>
-
                             <h3 className="text-2xl font-bold">
                                 Our Mission
                             </h3>
-
                             <p className="mt-5 leading-8 text-white/80">
                                 To connect volunteers with social development
                                 opportunities, simplify community event
@@ -149,16 +118,13 @@ const AboutPage = () => {
                                 take action for people and communities in need.
                             </p>
                         </div>
-
                         <div className="rounded-3xl border border-gray-100 bg-slate-50 p-8 shadow-lg sm:p-10">
                             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F4C542] text-2xl text-[#003366]">
                                 <FaEye />
                             </div>
-
                             <h3 className="text-2xl font-bold text-[#003366]">
                                 Our Vision
                             </h3>
-
                             <p className="mt-5 leading-8 text-gray-600">
                                 To build a society where helping others becomes
                                 a shared responsibility and every individual
@@ -167,28 +133,22 @@ const AboutPage = () => {
                                 community.
                             </p>
                         </div>
-
                     </div>
                 </div>
             </section>
-
             <section className="px-4 py-20 sm:px-6 lg:py-24">
                 <div className="mx-auto max-w-6xl">
-
                     <div className="mb-14 text-center">
                         <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#c18d00]">
                             What Guides Us
                         </p>
-
                         <h2 className="text-3xl font-extrabold text-[#003366] sm:text-4xl">
                             Our Core Values
                         </h2>
-
                         <p className="mx-auto mt-4 max-w-2xl text-gray-500">
                             The principles that inspire everything we do.
                         </p>
                     </div>
-
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                         {values.map((value, index) => (
                             <div
@@ -209,28 +169,22 @@ const AboutPage = () => {
                             </div>
                         ))}
                     </div>
-
                 </div>
             </section>
-            
             <section className="bg-white px-4 py-20 sm:px-6 lg:py-24">
                 <div className="mx-auto max-w-6xl">
-
                     <div className="mb-14 text-center">
                         <p className="mb-3 text-sm font-bold uppercase tracking-widest text-[#c18d00]">
                             Our Activities
                         </p>
-
                         <h2 className="text-3xl font-extrabold text-[#003366] sm:text-4xl">
                             How We Create Impact
                         </h2>
-
                         <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-500">
                             We support meaningful initiatives that help
                             communities grow and thrive.
                         </p>
                     </div>
-
                     <div className="grid gap-8 md:grid-cols-3">
                         {activities.map((activity, index) => (
                             <div
@@ -251,12 +205,9 @@ const AboutPage = () => {
                             </div>
                         ))}
                     </div>
-
                 </div>
             </section>
-
         </main>
     );
 };
-
 export default AboutPage;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const loading = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const loading = () => {
         </div>
     );
 };
-
 export default loading;

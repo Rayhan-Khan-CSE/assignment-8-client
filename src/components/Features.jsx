@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const features = [
     {
         number: "01",
@@ -50,7 +48,6 @@ const features = [
         tag: "Make an Impact",
     },
 ];
-
 const Features = () => {
     return (
         <section className="bg-slate-50 px-5 py-16 sm:px-8 sm:py-20 lg:py-24">

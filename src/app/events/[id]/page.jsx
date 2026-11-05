@@ -3,12 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import JoinedEvents from "../../../components/JoinedEvents";
-
 const EventsDetailsPage = async ({ params }) => {
     const { id } = await params;
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`);
     const event = await res.json();
-
     const formatDate = (date) => {
         return new Date(`${date}T00:00:00`).toLocaleDateString("en-BD", {
             day: "numeric",
@@ -16,7 +14,6 @@ const EventsDetailsPage = async ({ params }) => {
             year: "numeric",
         });
     };
-
     return (
         <main className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-6xl">
@@ -84,7 +81,6 @@ const EventsDetailsPage = async ({ params }) => {
                                         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-xl">
                                             📅
                                         </div>
-
                                         <div>
                                             <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
                                                 Event Date

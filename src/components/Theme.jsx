@@ -5,7 +5,6 @@ const ThemeToggle = () => {
     const [dark, setDark] = useState(false);
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
-
         if (savedTheme === "dark") {
             document.documentElement.classList.add("dark");
         }
@@ -33,5 +32,4 @@ const ThemeToggle = () => {
         </button>
     );
 };
-
 export default ThemeToggle;

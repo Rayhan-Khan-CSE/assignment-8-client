@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { FaHouse, FaMagnifyingGlass } from "react-icons/fa6";
-
 const NotFound = () => {
     return (
         <div className="flex min-h-[75vh] items-center justify-center bg-slate-50 px-4 py-12">
-
             <div className="w-full max-w-xl text-center">
                 <div className="relative mb-8">
                     <h1 className="text-8xl font-extrabold tracking-widest text-[#003366]/10 sm:text-9xl">
                         404
                     </h1>
-
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#003366] text-[#F4C542] shadow-xl shadow-[#003366]/20">
                             <FaMagnifyingGlass className="text-3xl" />
@@ -45,10 +42,8 @@ const NotFound = () => {
                         Connecting People, Creating Positive Change.
                     </p>
                 </div>
-
             </div>
         </div>
     );
 };
-
 export default NotFound;

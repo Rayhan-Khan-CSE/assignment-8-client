@@ -3,7 +3,6 @@ import logo from "../assets/logo.png";
 import Image from "next/image";
 import UserInfo from "./UserInfo";
 import Theme from "../components/Theme";
-
 const Navbar = () => {
     return (
         <nav className="relative z-50 w-full shadow-lg">
@@ -19,18 +18,15 @@ const Navbar = () => {
                             className="h-full w-full rounded-xl object-cover"
                         />
                     </div>
-
                     <div>
                         <h1 className="text-xl font-bold tracking-wide text-[#003366] sm:text-2xl">
                             <span className="font-extrabold text-[#F4C542]">H</span>ermione
                         </h1>
-
                         <p className="hidden text-xs text-gray-500 sm:block">
                             Social Development Events Platform
                         </p>
                     </div>
                 </Link>
-
                 <div className="flex items-center gap-3 sm:gap-6 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
                     <Link
                         href="/events"
@@ -39,15 +35,12 @@ const Navbar = () => {
                         Upcoming Events
                     </Link>
                 </div>
-                
                 <div className="relative z-50 ml-auto flex shrink-0 items-center justify-end gap-2 sm:gap-3">
                     <Theme />
                     <UserInfo />
                 </div>
-
             </div>
         </nav>
     );
 };
-
 export default Navbar;

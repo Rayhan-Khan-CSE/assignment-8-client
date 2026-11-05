@@ -1,12 +1,8 @@
 "use client";
-
 import React from 'react';
 import { toast } from 'react-toastify';
-
 const DeleteEvent = ({ eventId }) => {
-
-    const handleDeleteEvent = async () => {
-
+const handleDeleteEvent = async () => {
         try {
             const res = await fetch(
                 `${process.env.NEXT_PUBLIC_API_URL}/events/${eventId}`,
@@ -14,24 +10,19 @@ const DeleteEvent = ({ eventId }) => {
                     method: 'DELETE'
                 }
             );
-
             const data = await res.json();
-
             console.log(data);
-
             if (res.ok) {
                 toast.success("Event deleted successfully!");
                 window.location.reload();
             } else {
                 toast.error("Failed to delete event!");
             }
-
         } catch (error) {
             console.log(error);
             alert("Something went wrong!");
         }
     };
-
     return (
         <div>
             <button
@@ -45,5 +36,4 @@ const DeleteEvent = ({ eventId }) => {
         </div>
     );
 };
-
 export default DeleteEvent;

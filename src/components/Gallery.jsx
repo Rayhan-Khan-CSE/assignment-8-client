@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 const galleryItems = [
     {
         id: 1,
@@ -56,7 +55,6 @@ const galleryItems = [
         size: "large",
     },
 ];
-
 const Gallery = () => {
     return (
         <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
